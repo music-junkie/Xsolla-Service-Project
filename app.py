@@ -34,24 +34,21 @@ def hello():
     return response
 
 # предикт категории
-@application.route("/categoryPrediction" , methods=['GET', 'POST'])  
+@application.route("/categoryPrediction", methods=['GET', 'POST'])  
 def registration():
     resp = {'message':'ok'
            ,'category': -1
            }
 
-    try:
-        getData = request.get_data()
-        json_params = json.loads(getData) 
+#     try:
+#         getData = request.get_data()
+#         json_params = json.loads(getData) 
         
         #напишите прогноз и верните его в ответе в параметре 'prediction'
-
-
-
         
-    except Exception as e: 
-        print(e)
-        resp['message'] = e
+#     except Exception as e: 
+#         print(e)
+#         resp['message'] = e
       
     response = jsonify(resp)
     
