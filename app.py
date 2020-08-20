@@ -40,15 +40,15 @@ def registration():
            ,'category': -1
            }
 
-#     try:
-#         getData = request.get_data()
-#         json_params = json.loads(getData) 
+    try:
+        getData = request.get_data()
+        json_params = json.loads(getData) 
         
-        #напишите прогноз и верните его в ответе в параметре 'prediction'
-        
-#     except Exception as e: 
-#         print(e)
-#         resp['message'] = e
+        category = np.argmax(model.predict(vec.transform([json_params['user_message']]).toarray()))
+        resp['category'] = category
+    except Exception as e: 
+        print(e)
+        resp['message'] = e
       
     response = jsonify(resp)
     
