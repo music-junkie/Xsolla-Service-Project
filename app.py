@@ -44,7 +44,7 @@ def registration():
         getData = request.get_data()
         json_params = json.loads(getData) 
         
-        category = np.argmax(model.predict(vec.transform([json_params['user_message']]).toarray()))
+        category = model.predict(vec.transform([json_params['user_message']]).toarray()).tolist()
         resp['category'] = category
     except Exception as e: 
         print(e)
